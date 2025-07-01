@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Você gostaria de saber sobre o Tango?</title>
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #8B0000, #000000);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h2 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #FFD700; /* amarelo ouro */
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+      font-family: 'Georgia', serif;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 350px;
+      width: 100%;
+    }
+
+    button {
+      background: linear-gradient(45deg, #8B0000, #FF0000);
+      border: 2px solid #FFD700;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      padding: 15px 40px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(255, 215, 0, 0.5);
+      transition: all 0.3s ease;
+      position: relative;
+      min-width: 130px;
+      user-select: none;
+    }
+
+    button#yes {
+      background: linear-gradient(45deg, #FFD700, #FFCC00);
+      color: #8B0000;
+      border-color: #8B0000;
+      box-shadow: 0 4px 10px rgba(139, 0, 0, 0.7);
+    }
+
+    button#yes:hover {
+      background: #FFC300;
+      color: #5A0000;
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(139, 0, 0, 0.9);
+    }
+
+    button#no {
+      background: linear-gradient(45deg, #8B0000, #4B0000);
+      border-color: #FFD700;
+    }
+
+    button#no:hover {
+      background: #B22222;
+      box-shadow: 0 0 15px #FF0000;
+      transform: scale(1.05);
+    }
+
+    /* Texto sombra no corpo para elegância */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -150px;
+      left: -150px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle at center, #FFD700 40%, transparent 70%);
+      filter: blur(100px);
+      opacity: 0.2;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Responsividade */
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 2.5rem;
+      }
+      button {
+        font-size: 1.2rem;
+        padding: 12px 25px;
+        min-width: 100px;
+      }
+      .buttons {
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Você gostaria de saber sobre o Tango?</h2>
+
+  <div class="buttons">
+    <button id="yes">Sim</button>
+    <button id="no">Não</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+
+    function moveNoButton() {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+
+      const maxX = vw - btnWidth;
+      const maxY = vh - btnHeight;
+
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.position = "fixed";
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    }
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+
+    document.getElementById("yes").onclick = () => {
+      window.location.href = "https://youtu.be/FQC8MMDrHGo?si=BQQGkle0f77pCzlK";
+    };
+  </script>
+</body>
+</html>
+
